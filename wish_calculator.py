@@ -14,10 +14,11 @@ def genshin():
     pulls = int(input("Wishes currently owned: "))
     glitter = int(input("Masterless starglitter currently owned: "))
     crystals = int(input("Crystals currently owned: "))
-    abyss = int(input("Estimated primos from abyss: ")) 
+    abyss = int(input("Estimated primos from abyss: ")) # 0.5 month
+    welkin = 60 if str.lower(input("Welkin? [Y/N] : ")) == 'n' else 150
     print('----------------------------------------------------')
-    trial = 40 
-    compensation = 300 + 600 
+    trial = 40 # 21 days
+    compensation = 300 + 600 # 42 days
     v2_0 = datetime.datetime(2021, 7, 21)
     curr_t = datetime.datetime.today()
     v = 2+(((curr_t - v2_0).days // 42)/10)
@@ -34,10 +35,10 @@ def genshin():
         old_t = curr_t - datetime.timedelta(days=1)
         if i == 0:
             day0 = 21 - ((curr_t - v2_0).days % 21)
-            primos += day0*150
+            primos += day0*welkin
             curr_t += datetime.timedelta(days=day0)
         else:
-            primos += 21*150
+            primos += 21*welkin
             curr_t += datetime.timedelta(days=21)
         if snd_half:
             primos += compensation
