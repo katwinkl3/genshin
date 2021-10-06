@@ -1,2 +1,3 @@
-# Genshin
-Includes genshin wish calculator that computes the amount of wishes obtained from now till each upcoming banner. Assumes no BP.
+# Genshin wish calculator
+Computes the number of wishes you'll have by each future banner. Accounts for welkin, spiral abyss, starglitter and stardust shop redemption, daily check-in, and current crystals. Note that pity should be added to wish count input. For each banner, first row gives version info and dates, second gives total wishes from spending primos, third gives total wishes from spending both primos and starglitter (recursively calculates for glitter that came from redeemed pulls), and fourth gives total wishes from spending primos, starglitter, and crystals. (In order of increasing desperation)
+Assumes no BP or event rewards, no overflowed characters from wishing, and only one 5 star per 90 pulls.
