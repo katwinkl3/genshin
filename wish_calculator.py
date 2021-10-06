@@ -26,9 +26,10 @@ def genshin():
     rewards = {1:(5*160)+abyss, 4:20, 11:20, 16:abyss, 18:20}
 
     print("Currently at Version", v, "with primos:", primos, "fates:", pulls)
-    print("Note: \n\t Exclusive of day of calculation, inclusive of actual banner day;")
-    print('\t Starglitter wishes assumes no overflowed characters, and one 5 star every 90 pull;')
-    print('\t Does not account for normal wishes')
+    print("Note: \n\t 1. Exclusive of day of calculation, inclusive of actual banner day;")
+    print('\t 2. Starglitter wishes assume no overflowed characters, and one 5 star every 90 pull;')
+    print('\t 3. Does not account for normal wishes')
+    print('\t 4. Does not assume BP and event rewards')
     print('----------------------------------------------------\n')
 
     for i in range(count):
@@ -42,6 +43,7 @@ def genshin():
             curr_t += datetime.timedelta(days=21)
         if snd_half:
             primos += compensation
+        v += (0.1*snd_half)
         snd_half = (snd_half + 1) % 2
         primos += trial
         for (k,val) in rewards.items():
@@ -52,7 +54,6 @@ def genshin():
                 if (curr_t.day >= k) and (k > old_t.day):
                     primos += val
         crystals += 210
-        v += 0.1
         
         pull_1 = (primos//160)+pulls
         pull_2 = pulls_from_glitter(pull_1, glitter)
